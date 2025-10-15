@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      caption {
+        border: 1px solid #333;
+        border-bottom: none;
+        background-color: #34495e;
+      }
+      table {
+        width: 75%;
+        height: 300px;
+        /* 중복되는 선 합치기 */
+        border-collapse: collapse;
+      }
+      table th,
+      td {
+        text-align: center;
+      }
+      thead th {
+        background-color: #7f8c8d;
+        border: 1px solid #333;
+        border-left-style: none;
+        border-right-style: none;
+      }
+      table > tfoot > tr {
+        border: 1px solid #333;
+        border-top-style: double;
+        border-left-style: none;
+        border-right-style: none;
+        background-color: #2980b9;
+      }
+      table tbody tr:nth-child(1):hover {
+        cursor: pointer;
+        background-color: rgba(7, 153, 146, 1);
+      }
+      table tbody tr:nth-child(2):hover {
+        cursor: pointer;
+        background-color: rgba(56, 173, 169, 1);
+      }
+      table tbody tr:nth-child(3):hover {
+        cursor: pointer;
+        background-color: rgba(120, 224, 143, 1);
+      }
+      table tbody tr:nth-child(4):hover {
+        cursor: pointer;
+        background-color: rgba(184, 233, 148, 1);
+      }
+      table tbody tr:nth-child(5):hover {
+        cursor: pointer;
+        background-color: rgb(207, 220, 197);
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>
+        성적표
+      </caption>
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>이름</th>
+          <th>성적</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>kim</td>
+          <td>78</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>pack</td>
+          <td>96</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>kong</td>
+          <td>85</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>lee</td>
+          <td>45</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>choi</td>
+          <td>69</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="2">합계</th>
+          <th>???</th>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

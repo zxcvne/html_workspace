@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 
+        background-color : 배경색
+        background-image : 배경 이미지
+        - 배경색과 이미지가 둘다 존재하면 이미지가 우선 출력
+        - 이미지가 화면보다 작을 경우 남는 부분에 배경색이 출력
+        background-size : 배경이미지 크기 가로 * 세로
+        background-repeat : 배경이미지 반복
+            - no-repeat : 반복 x
+            - repeat-x : x축으로만 반복
+            - repeat-y : y축으로만 반복
+            - round : 양쪽반복
+            - 기본값이 반복되는 형태
+        background-position : 배경이미지 위치
+            - center : 가운데
+            - x축 y축 : 해당 값으로 이동
+        background : color image position size repeat 순으로 입력
+    -->
+    <style>
+      body {
+        background-image: url("../image/background4.png");
+        background-size: cover;
+        background-repeat: repeat;
+        background-position: center;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: antiquewhite;
+        background-image: url("../image/dog.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .box:hover {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="box2"></div>
+  </body>
+</html>
