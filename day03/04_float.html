@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 
+        float 속성 : 요소를 띄우는 속성
+        - 요소를 정상적인 문서 흐음에서 벗어나 왼쪽이나 오른쪽으로 부유하게 만들어
+          텍스트나 다른 인라인 요소가 해당 요소 주위를 감싸도록 합니다.
+            - float 속성을 사용시 자식 요소의 높이 값을 부모가 인지 못함.
+            ::after
+    -->
+    <style>
+      .p-box {
+        width: 306px;
+        background-color: aquamarine;
+      }
+      .p-box::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #333;
+        float: left;
+      }
+
+      .p_box2 {
+        width: 500px;
+        height: 500px;
+        border: 1px solid #333;
+        background-color: #333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="p-box">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+
+  </body>
+</html>

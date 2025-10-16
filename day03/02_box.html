@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 
+        box-sizing : box의 크기를 지정하는 속성
+        width : 컨텐츠의 가로 길이 
+        box-sizing에 따라 width 크기가 컨텐츠의 가로길이가 될 수도 있고,
+        박스 전체의 가로 길이가 될 수도 있음.
+        - border-box : width = 컨텐츠의 가로 + padding(왼+오) + border(왼+오)
+        - content-box : width = 컨텐츠가로
+        width=100px / padding=5px / border=1px
+        - border-box : 가로(88px) + 5 + 5 + 1 + 1 = 100px
+        - content-box : 가로(100px) + 5 + 5 + 1 + 1 = 112px
+
+        margin : [top=bottom=left=right];
+        margin : [top=bottom][left=right];
+        margin : [top][left=right][bottom];
+        margin : [top][right][bottom][left]; (시계방향)
+    -->
+    <style>
+      @font-face {
+        font-family: "BBHSansBogle-Regular";
+        src: url(../font/BBHSansBogle-Regular.ttf);
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        /* padding:10px border 1px*/
+        padding: 10px;
+        border: 1px solid #333;
+      }
+      .box1 {
+        background-color: violet;
+        box-sizing: border-box; /* 일반적으로 많이 사용 */
+      }
+      .box2 {
+        background-color: brown;
+        box-sizing: content-box;
+        margin-bottom: 10px;
+      }
+
+      a {
+        text-decoration-line: none;
+      }
+
+      .naver {
+        font-family: "BBHSansBogle-Regular";
+        margin-top: 13px;
+        padding: 17px 0;
+        box-sizing: border-box;
+        width: 380px;
+        height: 56px;
+        border: 1px solid #03a94d;
+        background-color: #03a94d;
+        text-align: center;
+        line-height: 20px;
+        border-radius: 4px;
+        font-size: 26px;
+        font-weight: 300;
+        color: #fff;
+      }
+      .naver > span {
+        font-size: 18px;
+      }
+      .naver:hover {
+        background-color: #04813c;
+        border: 1px solid #04813c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+
+    <a href="https://www.naver.com/" target="_blank">
+      <div class="naver">NAVER <span>로그인</span></div>
+    </a>
+  </body>
+</html>

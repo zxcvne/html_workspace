@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .p-box {
+      display: inline-block;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      box-sizing: border-box;
+    }
+    .box {
+      width: 200px;
+      height: 50px;
+      border: 1px solid #333;
+      text-align: center;
+      line-height: 50px;
+      border-bottom: none;
+    }
+    .box:hover {
+      background-color: yellow;
+      cursor: pointer;
+    }
+    .box4 {
+      border-bottom: 1px solid #333;
+    }
+    .img {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: inline-block;
+      border: 1px solid #333;
+      margin-left: 10px;
+      width: calc(100% - 250px);
+      box-sizing: border-box;
+      height: 700px;
+      border: 1px solid #000000;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="p-box">
+        <div class="box">menu1</div>
+        <div class="box">menu2</div>
+        <div class="box">menu3</div>
+        <div class="box box4">menu4</div>
+      </div>
+      <div class="img-box">
+        <img class="img" src="../image/background1.png" alt="백그라운드" />
+      </div>
+    </div>
+  </body>
+</html>

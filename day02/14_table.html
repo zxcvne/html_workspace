@@ -6,50 +6,38 @@
     <title>Document</title>
     <style>
       caption {
-        border: 1px solid #333;
+        /*border: 1px solid #333;*/
         border-bottom: none;
-        background-color: #34495e;
+        /*background-color: #34495e;*/
       }
       table {
         width: 75%;
-        height: 300px;
         /* 중복되는 선 합치기 */
         border-collapse: collapse;
       }
       table th,
       td {
+        height: 30px;
         text-align: center;
       }
       thead th {
         background-color: #7f8c8d;
-        border: 1px solid #333;
-        border-left-style: none;
-        border-right-style: none;
+        border-top: 3px solid #333;
+        border-bottom: 3px solid #333;
       }
       table > tfoot > tr {
-        border: 1px solid #333;
+        border-top: 3px solid #333;
+        border-bottom: 3px solid #333;
         border-top-style: double;
-        border-left-style: none;
-        border-right-style: none;
         background-color: #2980b9;
       }
-      table tbody tr:nth-child(1):hover {
+      /* tobody의 짝수라인 마우스 올리면 색 변경*/
+      table > tbody > tr:nth-child(even):hover {
         cursor: pointer;
         background-color: rgba(7, 153, 146, 1);
       }
-      table tbody tr:nth-child(2):hover {
-        cursor: pointer;
-        background-color: rgba(56, 173, 169, 1);
-      }
-      table tbody tr:nth-child(3):hover {
-        cursor: pointer;
-        background-color: rgba(120, 224, 143, 1);
-      }
-      table tbody tr:nth-child(4):hover {
-        cursor: pointer;
-        background-color: rgba(184, 233, 148, 1);
-      }
-      table tbody tr:nth-child(5):hover {
+      /* tobody의 홀수라인 마우스 올리면 색 변경*/
+      table > tbody > tr:nth-child(odd):hover {
         cursor: pointer;
         background-color: rgb(207, 220, 197);
       }

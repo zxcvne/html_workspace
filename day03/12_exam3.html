@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      width: 400px;
+      height: 620px;
+      border: 1px solid #333;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .header {
+      width: 380px;
+      height: 100px;
+      margin: 10px;
+      border: 3px solid #333;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 100px;
+      font-weight: 900;
+      font-size: 36px;
+    }
+
+    .main {
+      width: 380px;
+      height: 380px;
+      margin: 10px;
+      border: 3px solid #333;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .item {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      box-shadow: 5px 5px 5px rgb(178, 173, 173);
+    }
+
+    .item1 {
+      background-color: red;
+      top: 100px;
+      left: 100px;
+      z-index: 3;
+    }
+
+    .item2 {
+      background-color: green;
+      top: 140px;
+      left: 140px;
+      z-index: 2;
+    }
+
+    .item3 {
+      background-color: blue;
+      top: 180px;
+      left: 180px;
+      z-index: 1;
+    }
+
+    .footer {
+      width: 380px;
+      height: 100px;
+      margin: 10px;
+      border: 3px solid #333;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 100px;
+      font-weight: 900;
+      font-size: 36px;
+    }
+  </style>
+  <!-- 100,100 40,40 -->
+  <body>
+    <div class="container">
+      <div class="header">텍스트</div>
+      <div class="main">
+        <div class="item item1"></div>
+        <div class="item item2"></div>
+        <div class="item item3"></div>
+      </div>
+      <div class="footer">텍스트</div>
+    </div>
+  </body>
+</html>
