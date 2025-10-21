@@ -1,0 +1,506 @@
+@import url(../day05/reset.css);
+@font-face {
+  font-family: "NotoSansKR-VariableFont_wght";
+  src: url(../font/NotoSansKR-VariableFont_wght.ttf);
+}
+body {
+  font-family: "NotoSansKR-VariableFont_wght";
+  color: black;
+}
+/* inner : 1360 */
+
+.wrap {
+  min-width: 1400px;
+}
+.inner {
+  width: 1360px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+header {
+  width: 1905px;
+  height: 130px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  display: flex;
+  border-bottom: 0.1px solid #d9d9d9;
+  z-index: 10;
+}
+.header-top {
+  box-sizing: border-box;
+  border-bottom: 1px solid #d9d9d9;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-top > .headerHeadSite_box {
+  display: flex;
+  align-items: center;
+}
+.header-top > .headerHeadSite_box > li {
+  margin-right: 10px;
+}
+.header-top > .headerHeadSite_box > li > a > span {
+  color: gray;
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: 5px;
+}
+.header-top > .headerHeadSite_box > li:nth-child(7) > a > span {
+  color: #005e3c;
+  font-weight: 600;
+}
+.header-top > .headerUserAction_btn {
+  overflow: hidden;
+  display: flex;
+  color: gray;
+}
+.header-top > .headerUserAction_btn > a {
+  color: gray;
+  font-size: 12px;
+}
+.header-top > .headerUserAction_btn > span {
+  color: #d9d9d9;
+  font-size: 12px;
+}
+.header-top > .headerUserAction_btn > select {
+  color: gray;
+  border: none;
+  font-size: 12px;
+}
+.header-main {
+  box-sizing: border-box;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+}
+.header-main > .header-main-box {
+  display: flex;
+  align-items: center;
+}
+.header-main > .header-main-box > img {
+  width: 98px;
+  height: 74px;
+}
+.header-main > .header-main-box > .nav > .nav__list {
+  display: flex;
+}
+.header-main > .header-main-box > .nav > .nav__list > .nav__item {
+  margin-left: 60px;
+}
+.header-main > .header-main-box > .nav > .nav__list > .nav__item > a {
+  color: #333;
+  font-weight: 600;
+}
+.header-main > .header-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-main > .header-action > button {
+  width: 90.41px;
+  height: 36px;
+  border: 1px solid #005e3c;
+  border-radius: 99.9rem;
+  color: #005e3c;
+  padding: 0 16px;
+  font-weight: 600;
+}
+
+main {
+  width: 1905px;
+}
+main > .slide {
+  z-index: 1;
+  height: 853.23px;
+  background-color: gray;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+main > .slide > .slide-btn {
+  width: 68px;
+  height: 68px;
+  background-color: #d9d9d9;
+  border: none;
+}
+main > .slide > .slide-btn:first-child {
+  margin-left: 5%;
+}
+main > .slide > .slide-btn:last-child {
+  margin-right: 5%;
+}
+main > .slide > .inner > .visual_textBox {
+  width: 424.49px;
+  height: 242.38px;
+  color: #fff;
+}
+main > .slide > .inner > .visual_textBox h3 {
+  font-size: 50px;
+  font-weight: 700;
+  margin: 25px 0;
+}
+main > .slide > .inner > .visual_textBox p {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+main > .slide > .inner > .visual_container {
+  position: absolute;
+  bottom: 30px;
+}
+main > .slide > .inner .visualSwiperCtl {
+  width: 100%;
+  height: 46px;
+  width: 1328.01px;
+  display: flex;
+  justify-content: end;
+  margin-bottom: 15px;
+}
+main > .slide > .inner .visualBox {
+  width: 126.95px;
+  background-color: #333;
+  border-radius: 2.4rem;
+}
+main > .slide > .inner .timeBar_infoBox {
+  width: 1060.02px;
+  height: 80px;
+  background-color: #fff;
+  border: 1px solid #333;
+  float: left;
+  box-sizing: border-box;
+}
+
+main > .slide > .inner .timeBar_infoBox > ul {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+main > .slide > .inner .timeBar_infoBox > ul > li {
+  display: flex;
+  font-size: 16px;
+  font-weight: 300;
+  align-items: center;
+}
+main > .slide > .inner .timeBar_infoBox > ul > li > span {
+  color: #333;
+  font-weight: 500;
+}
+main > .slide > .inner .timeBar_btn {
+  box-sizing: border-box;
+  width: 267.99px;
+  height: 80px;
+  background-color: #005e3c;
+  font-size: 16px;
+  color: #fff;
+}
+main > .con1 {
+  height: 886.8px;
+}
+main > .con1 > .inner {
+  padding: 120px 0;
+}
+main > .con1 > .inner > .main__subHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid #333;
+  margin: 0 0 32px;
+  padding: 0 0 16px;
+}
+main > .con1 > .inner > .main__subHead > h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+main > .con1 > .inner > .permanentExhibition__list {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+main > .con1 > .inner > .permanentExhibition__list > ._cardThumbnail__box {
+  border-bottom: 1px solid #d9d9d9;
+  height: 233.23px;
+  padding: 0 0 32px;
+  box-sizing: border-box;
+  display: flex;
+}
+main
+  > .con1
+  > .inner
+  > .permanentExhibition__list
+  > ._cardThumbnail__box
+  > img {
+  width: 320px;
+  height: 200px;
+  margin-top: 16px;
+}
+
+main
+  > .con1
+  > .inner
+  > .permanentExhibition__list
+  > ._cardThumbnail__box
+  > ._cardThumbnail_cont {
+  margin: 20px;
+}
+main
+  > .con1
+  > .inner
+  > .permanentExhibition__list
+  > ._cardThumbnail__box
+  > ._cardThumbnail_cont
+  > h1 {
+  font-size: 24px;
+  margin: 10px 0;
+  font-weight: 700;
+}
+main
+  > .con1
+  > .inner
+  > .permanentExhibition__list
+  > ._cardThumbnail__box
+  > ._cardThumbnail_cont
+  > span {
+  color: #333;
+  font-size: 16px;
+  margin: 20px 0;
+  font-weight: 500;
+}
+
+main
+  > .con1
+  > .inner
+  > .permanentExhibition__list
+  > ._cardThumbnail__box
+  > ._cardThumbnail_cont
+  > p {
+  font-size: 12px;
+  margin: 20px 0;
+  font-weight: 400;
+  color: gray;
+}
+
+main
+  > .con1
+  > .inner
+  > .permanentExhibition__list
+  > ._cardThumbnail__box
+  > ._cardThumbnail_cont
+  > a {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin: 20px 0;
+  font-weight: 400;
+  color: #333;
+}
+main > .con1 > .inner > .exhibition__controller {
+  display: flex;
+  justify-content: center;
+  height: 36px;
+  margin-top: 16px;
+}
+main > .con1 > .inner > .exhibition__controller > span {
+  color: #333;
+  margin: 0 8px;
+  display: flex;
+  align-items: center;
+}
+main > .con1 > .inner > .exhibition__controller > button {
+  border: none;
+  color: #333;
+}
+main > .con1 > .inner > .exhibition__controller > button:first-child {
+  color: #d9d9d9;
+}
+main > .con2 {
+  height: 1053.58px;
+  background-color: blanchedalmond;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+}
+main > .con2 > .inner > .main__sectionHead {
+  height: 67.19px;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+main > .con2 > .inner > .main__sectionHead > span {
+  font-size: 44px;
+  font-weight: 700;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+main > .con2 > .inner > .tab__list {
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+main > .con2 > .inner > .tab__list > li > a {
+  color: gray;
+  font-size: 20px;
+  font-weight: 600;
+}
+main > .con2 > .inner > .tab__list > em {
+  color: aquamarine;
+}
+main > .con2 > .inner > .tab__list > li:first-child > a {
+  color: #005e3c;
+}
+
+main > .con2 > .inner > .tab-widthFull {
+  margin: 20px 0;
+}
+main > .con2 > .inner > .tab-widthFull > .swiper-wraper {
+  display: flex;
+  justify-content: space-around;
+  width: 1328.01px;
+  height: 512.83px;
+}
+main > .con2 > .inner > .tab-widthFull > .swiper-wraper .con2-img {
+  width: 317.5px;
+  height: 400px;
+  background-color: #333;
+}
+main > .con2 > .inner > .button_medium {
+  margin-top: 120px;
+  width: 173.31px;
+  height: 48px;
+  border: 1px solid #333;
+  background: none;
+}
+main > .con2 > .inner > .button_medium > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #333;
+  font-weight: 800;
+}
+
+main > .con3 {
+  height: 1013.19px;
+  background: url(../민속박물관/con3_background.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+main > .con3 > .inner {
+  display: flex;
+  align-items: center;
+}
+main > .con3 > .inner > .con3_btn {
+  width: 68px;
+  height: 68px;
+  background-color: #d9d9d9;
+  border: none;
+}
+main > .con3 .escape_wrap {
+  margin: auto;
+  width: 1071.99px;
+  height: 773.19px;
+  background-color: #333;
+}
+main > .con4 {
+  height: 520px;
+  background-color: #fff;
+  padding: 120px 0;
+  box-sizing: border-box;
+}
+main > .con4 .link_banner {
+  width: 1328px;
+  display: flex;
+  justify-content: space-between;
+}
+main > .con4 .link_bannerBox {
+  width: 656px;
+  height: 280px;
+  background-color: #333;
+}
+.linkBar__box {
+  width: 2381.26;
+  height: 100px;
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.linkBar__box1 {
+  width: 50%;
+  padding-right: 48px;
+  background-color: #005e3c;
+  display: flex;
+  justify-content: end;
+}
+.linkBar__box1 > .linkBar__box1Cont {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.linkBar__box2 {
+  width: 50%;
+  padding-left: 48px;
+  display: flex;
+  justify-content: start;
+  background-color: #005e3c;
+}
+.linkBar__box2 > .linkBar__box2Cont {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.linkBar__box .linkbox_cont,
+span {
+  display: flex;
+  color: #fff;
+}
+footer {
+  width: 1905px;
+  height: 330.56px;
+  padding: 50px 0;
+  box-sizing: border-box;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+}
+.footer-top > .footer_logo {
+  width: 140px;
+  height: 32px;
+  background: url(../민속박물관/imgi_22_footerLogo-BwqZGQTA.svg);
+  background-position: center;
+  background-size: cover;
+}
+.footer-top > .footer_action > .footer_link {
+  display: flex;
+}
+.footer-top > .footer_action > .footer_actionSub {
+  display: flex;
+  justify-content: end;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-bottom > .footer__markBox {
+  display: flex;
+  overflow: hidden;
+}
+.footer-bottom > .footer__markBox > .footer__mark {
+  width: 203.3px;
+  height: 40px;
+  background-color: #333;
+}

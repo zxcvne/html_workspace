@@ -1,0 +1,20 @@
+@import url(../day05/reset.css);
+@font-face {
+  font-family: "NotoSansKR-VariableFont_wght";
+  src: url(../font/NotoSansKR-VariableFont_wght.ttf);
+}
+body {
+  font-family: "NotoSansKR-VariableFont_wght";
+  color: black;
+}
+
+/* inner : 1360 */
+
+.wrap {
+  min-width: 1400px;
+}
+.inner {
+  width: 1360px;
+  margin: auto;
+  box-sizing: border-box;
+}
