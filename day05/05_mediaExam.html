@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .header {
+        width: 100%;
+        background-color: rgb(167, 165, 165);
+        height: 100px;
+        position: relative;
+        box-sizing: border-box;
+      }
+
+      .header h1 {
+        position: absolute;
+        top: 50%;
+        padding-left: 40px;
+        transform: translate(0, -50%);
+      }
+
+      /* media query 변경내용 */
+      .main-img {
+        height: 300px;
+        overflow: hidden;
+        background: url(../image/main.jpg);
+        background-position: center;
+        background-size: cover;
+      }
+
+      .discription {
+        width: 100%;
+        height: 300px;
+        box-sizing: border-box;
+      }
+      .discription > p:first-child {
+        font-weight: 700;
+        color: gray;
+        font-size: 20px;
+        margin: 30px 0;
+      }
+      .discription > p:nth-child(2) {
+        font-weight: 700;
+        font-size: 20px;
+        margin: 30px 0;
+      }
+      .discription > p:last-child {
+        font-size: 16px;
+      }
+
+      .sub-img {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        background: url(../image/sub1.jpg);
+        background-position: center;
+        background-size: cover;
+      }
+
+      .sub-img2 {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        background: url(../image/sub2.jpg);
+        background-position: center;
+        background-size: cover;
+        text-align: center;
+        line-height: 300px;
+      }
+      .sub-img2 > a {
+        border: 4px solid white;
+        font-size: 20px;
+        color: white;
+        padding: 20px;
+        text-decoration: none;
+      }
+
+      .sub-img2 > a:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      .sub-img3 {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        background: url(../image/sub3.jpg);
+        background-position: center;
+        background-size: cover;
+      }
+
+      @media screen and (min-width: 800px) {
+        .sub-img {
+          float: left;
+          width: 50%;
+          height: 600px;
+        }
+        .sub-img2 {
+          float: right;
+          width: 50%;
+          height: 300px;
+        }
+        .sub-img3 {
+          float: right;
+          width: 50%;
+          height: 300px;
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        .main-img {
+          float: left;
+
+          width: 50%;
+          height: 1000px;
+        }
+        .discription {
+          float: right;
+          width: 50%;
+          height: 500px;
+          padding: 20px;
+          box-sizing: border-box;
+        }
+        .sub-img {
+          float: left;
+
+          width: 25%;
+          height: 500px;
+        }
+        .sub-img2 {
+          float: right;
+          line-height: 250px;
+          width: 25%;
+          height: 250px;
+        }
+        .sub-img3 {
+          float: right;
+
+          width: 25%;
+          height: 250px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>IN'O</h1>
+    </div>
+    <div class="main-img"></div>
+    <div class="discription">
+      <p>Portfolio</p>
+      <p>Make Hardware Soft</p>
+      <p>
+        The standard chunk of Lorem Ipsum used since the 1500s is reproduced
+        below for those interested. Sections 1.10.32 and 1.10.33 from "de
+        Finibus Bonorum et Malorum" by Cicero are also
+      </p>
+    </div>
+    <div class="sub-img"></div>
+    <div class="sub-img2">
+      <a href="">VIEW MORE</a>
+    </div>
+    <div class="sub-img3"></div>
+  </body>
+</html>
