@@ -118,7 +118,9 @@ main {
 main > .slide {
   z-index: 1;
   height: 853.23px;
-  background-color: gray;
+  background: url("https://adventure.lotteworld.com/api/upload/202509/16/202509161994fd0141120");
+  background-position: center;
+  background-size: cover;
   position: relative;
   display: flex;
   align-items: center;
@@ -126,8 +128,9 @@ main > .slide {
 main > .slide > .slide-btn {
   width: 68px;
   height: 68px;
-  background-color: #d9d9d9;
+  background-color: rgba(98, 98, 98, 0.2);
   border: none;
+  color: white;
 }
 main > .slide > .slide-btn:first-child {
   margin-left: 5%;
@@ -320,19 +323,26 @@ main > .con1 > .inner > .exhibition__controller > button:first-child {
 }
 main > .con2 {
   height: 1053.58px;
-  background-color: blanchedalmond;
+  background-image: url(../민속박물관/con2Background.jpg);
+
   box-sizing: border-box;
   text-align: center;
   overflow: hidden;
 }
-main > .con2 > .inner > .main__sectionHead {
+main > .con2 > .inner > .tapList_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 0;
+}
+main > .con2 > .inner .main__sectionHead {
   height: 67.19px;
   display: flex;
   justify-content: center;
   margin-top: 60px;
   margin-bottom: 30px;
 }
-main > .con2 > .inner > .main__sectionHead > span {
+main > .con2 > .inner .main__sectionHead > span {
   font-size: 44px;
   font-weight: 700;
   color: #333;
@@ -340,46 +350,47 @@ main > .con2 > .inner > .main__sectionHead > span {
   justify-content: center;
   overflow: hidden;
 }
-main > .con2 > .inner > .tab__list {
+main > .con2 > .inner .tab__list {
   height: 36px;
   display: flex;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
-main > .con2 > .inner > .tab__list > li > a {
+main > .con2 > .inner .tab__list > li > a {
   color: gray;
   font-size: 20px;
   font-weight: 600;
 }
-main > .con2 > .inner > .tab__list > em {
+main > .con2 > .inner .tab__list > em {
   color: aquamarine;
 }
-main > .con2 > .inner > .tab__list > li:first-child > a {
+main > .con2 > .inner .tab__list > li:first-child > a {
   color: #005e3c;
 }
 
-main > .con2 > .inner > .tab-widthFull {
+main > .con2 > .inner .tab-widthFull {
   margin: 20px 0;
 }
-main > .con2 > .inner > .tab-widthFull > .swiper-wraper {
+main > .con2 > .inner .tab-widthFull > .swiper-wraper {
   display: flex;
   justify-content: space-around;
   width: 1328.01px;
   height: 512.83px;
 }
-main > .con2 > .inner > .tab-widthFull > .swiper-wraper .con2-img {
+main > .con2 > .inner .tab-widthFull > .swiper-wraper .con2-img {
   width: 317.5px;
   height: 400px;
-  background-color: #333;
+  background: url("https://adventure.lotteworld.com/api/upload/202508/06/202508061987e67f3de90");
+  background-position: center;
+  background-size: cover;
 }
-main > .con2 > .inner > .button_medium {
-  margin-top: 120px;
+main > .con2 > .inner .button_medium {
   width: 173.31px;
   height: 48px;
   border: 1px solid #333;
   background: none;
 }
-main > .con2 > .inner > .button_medium > span {
+main > .con2 > .inner .button_medium > span {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -410,7 +421,66 @@ main > .con3 .escape_wrap {
   margin: auto;
   width: 1071.99px;
   height: 773.19px;
-  background-color: #333;
+  text-align: center;
+  overflow: hidden;
+}
+main > .con3 .escape_wrap > .escapeHead {
+  padding-bottom: 20px;
+}
+
+main > .con3 .escape_wrap > .escapeHead .escapeMainText {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 50px 0;
+}
+main > .con3 .escape_wrap > .escapeHead .escapeSubText {
+  font-size: 20px;
+  color: gray;
+  font-weight: 500;
+}
+
+main > .con3 .escape_wrap > .escapeSlide > .escapeSlide_box {
+  display: flex;
+}
+
+main > .con3 .escape_wrap > .escapeSlide .escapeSlide_card {
+  width: 428.8px;
+  height: 456px;
+  background-color: #005e3c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+main > .con3 .escape_wrap > .escapeSlide .escapeSlide_card > img {
+  width: 240px;
+  height: 336px;
+}
+
+main > .con3 .escape_wrap > .escapeSlide .escapeSlide_text > .text_cont > span {
+  color: #333;
+}
+main > .con3 .escape_wrap > .escapeSlide .escapeSlide_text {
+  height: 456px;
+  padding: 0 0 0 80px;
+}
+
+main > .con3 .escape_wrap > .escapeSlide .escapeSlide_text > .text_cont {
+  margin: 50px auto;
+}
+
+main
+  > .con3
+  .escape_wrap
+  > .escapeSlide
+  .escapeSlide_text
+  > .text_cont
+  > .cardvisual
+  > span {
+  color: #333;
 }
 main > .con4 {
   height: 520px;
@@ -426,8 +496,19 @@ main > .con4 .link_banner {
 main > .con4 .link_bannerBox {
   width: 656px;
   height: 280px;
-  background-color: #333;
 }
+
+main > .con4 .box1 {
+  background: url("https://adventure.lotteworld.com/api/upload/202509/25/202509251997cfd11bb40");
+  background-position: center;
+  background-size: cover;
+}
+main > .con4 .box2 {
+  background: url("https://adventure.lotteworld.com/api/upload/202509/25/202509251997cfece7480");
+  background-position: center;
+  background-size: cover;
+}
+
 .linkBar__box {
   width: 2381.26;
   height: 100px;
@@ -503,4 +584,16 @@ footer {
   width: 203.3px;
   height: 40px;
   background-color: #333;
+}
+.athinker {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #005e3c;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #fff;
 }
