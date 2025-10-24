@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style></style>
+  <body>
+    <h1>구조에 따른 자바스크립트 객체 생성</h1>
+    <form action="">
+      이름 : <input type="text" id="name" name="name" /> <br />
+      주소 : <input type="text" id="addr" name="addr" /> <br />
+      좋아하는 리스트 <br />
+      리스트1 : <input type="text" id="favor1" name="favor1" /> <br />
+      리스트2 : <input type="text" id="favor2" name="favor2" /> <br />
+      리스트3 : <input type="text" id="favor3" name="favor3" /><br />
+      이메일 : <input type="text" id="email" name="email" /> <br />
+      내가 좋아하는 것 : <input type="text" id="wanna" name="wanna" /><br />
+      <button type="button" onclick="getDatas()">전송</button>
+    </form>
+    <button onclick="insertTd()">표로 출력</button>
+
+    <table id="table" border="1"></table>
+  </body>
+  <script>
+    const dataObj = {
+      name: "",
+      addr: "",
+      favors: {
+        favor1: "",
+        favor2: "",
+        favor3: "",
+      },
+      email: "",
+      wanna: "",
+    };
+    console.log(dataObj);
+
+    const name = document.getElementById("name");
+    const addr = document.getElementById("addr");
+    const favor1 = document.getElementById("favor1");
+    const favor2 = document.getElementById("favor2");
+    const favor3 = document.getElementById("favor3");
+    const email = document.getElementById("email");
+    const wanna = document.getElementById("wanna");
+
+    function getDatas() {
+      dataObj.name = name.value;
+      dataObj.addr = addr.value;
+      dataObj.favors.favor1 = favor1.value;
+      dataObj.favors.favor2 = favor2.value;
+      dataObj.favors.favor3 = favor3.value;
+      dataObj.email = email.value;
+      dataObj.wanna = wanna.value;
+    }
+    function insertTd() {
+      let table = document.getElementById("table");
+      let str = `<tbody>`;
+      str += `<tr><th>이름</th><td id="td1">${dataObj.name}</td></tr>`;
+      str += `<tr><th>주소</th><td id="td2">${dataObj.addr}</td></tr>`;
+      str += `<tr>`;
+      str += `<th>좋아하는 리스트</th>`;
+      str += `<td id="td3">`;
+      str += `<ul>`;
+      str += `<li>${dataObj.favors.favor1}</li>`;
+      str += `<li>${dataObj.favors.favor2}</li>`;
+      str += `<li>${dataObj.favors.favor3}</li>`;
+      str += `</ul>`;
+      str += `</td>`;
+      str += `</tr>`;
+      str += `<tr>`;
+      str += `<th>email</th>`;
+      str += `<td id="td4">${dataObj.email}</td>`;
+      str += `</tr>`;
+      str += `<tr>`;
+      str += `<th>wanna</th>`;
+      str += `<td id="td5">${dataObj.wanna}</td>`;
+      str += `</tr>`;
+      str += `</tbody>`;
+
+      table.innerHTML = str;
+    }
+  </script>
+</html>

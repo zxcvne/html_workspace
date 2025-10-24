@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        이름, 국어, 영어, 수학 점수를 입력받고 계산 버튼을 누르면 
+        합계, 평균, 80점 이상이면 합격
+        국어, 영어, 수학의 값이 0~100 값이 아니라면 alert창을 띄워 안내
+    -->
+    <fieldset>
+      <legend>점수</legend>
+      <input type="text" id="name" placeholder="이름" />
+      <br />
+      <input type="text" id="math" placeholder="수학점수" />
+      <br />
+      <input type="text" id="kor" placeholder="국어점수" />
+      <br />
+      <input type="text" id="eng" placeholder="영어점수" />
+      <br />
+      <button onclick="clickEvent()">성적계산</button>
+    </fieldset>
+    <ul id="ul"></ul>
+  </body>
+  <!--
+  <script>
+    function clickEvent() {
+      let name = document.getElementById("name").value;
+      let math = Number(document.getElementById("math").value);
+      let kor = Number(document.getElementById("kor").value);
+      let eng = Number(document.getElementById("eng").value);
+      let cnt = 0;
+      let sum = 0;
+      if (math < 0 || math > 100) {
+        alert("수학 점수를 0~100사이에서 입력해주세요");
+        document.getElementById("math").value = "";
+      } else {
+        sum += math;
+        cnt++;
+      }
+      if (kor < 0 || kor > 100) {
+        alert("국어 점수를 0~100사이에서 입력해주세요");
+        document.getElementById("kor").value = "";
+      } else {
+        sum += eng;
+        cnt++;
+      }
+      if (eng < 0 || eng > 100) {
+        alert("영어 점수를 0~100사이에서 입력해주세요");
+        document.getElementById("eng").value = "";
+      } else {
+        sum += eng;
+        cnt++;
+      }
+
+      let avg = sum / 3;
+      let result = avg >= 80 ? "pass" : "fail";
+      let str = `<li>이름 : ${name}</li>`;
+      str += `<li>수학 : ${math}</li>`;
+      str += `<li>국어 : ${kor}</li>`;
+      str += `<li>영어 : ${eng}</li>`;
+      str += `<li>합계 : ${sum}</li>`;
+      str += `<li>평균 : ${avg}</li>`;
+      str += `<li>합격여부 : ${result}</li>`;
+      if (cnt === 3) {
+        document.getElementById("ul").innerHTML = str;
+        cnt = 0;
+      }
+    }
+  </script>
+  -->
+
+  <script>
+    function clickEvent() {
+      let name = document.getElementById("name").value;
+      let kor = Number(document.getElementById("kor").value);
+      let eng = Number(document.getElementById("eng").value);
+      let math = Number(document.getElementById("math").value);
+
+      if (check(kor, "kor") && check(eng, "eng") && check(math, "math")) {
+        let sum = kor + eng + math;
+        let avg = sum / 3;
+        let pass = avg >= 80 ? "pass" : "fail";
+
+        let str = `<li>이름 : ${name}</li>`;
+        str += `<li>수학 : ${math}</li>`;
+        str += `<li>국어 : ${kor}</li>`;
+        str += `<li>영어 : ${eng}</li>`;
+        str += `<li>합계 : ${sum}</li>`;
+        str += `<li>평균 : ${avg.toFixed(2)}</li>`;
+        str += `<li>합격여부 : ${pass}</li>`;
+        document.getElementById("ul").innerHTML = str;
+      }
+    }
+    function check(num, id) {
+      if (num < 0 || num > 100) {
+        alert("0~100사이의 값을 입력해주세요.");
+        document.getElementById(id).value = "";
+        document.getElementById("ul").innerHTML = "";
+        return false;
+      } else {
+        return true;
+      }
+    }
+  </script>
+</html>

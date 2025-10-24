@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>생년월일 확인</legend>
+      이름 : <input type="text" id="name" /> <br />
+      주민번호 : <input type="text" id="rNum" /> <br />
+      <button id="btn" type="button">확인</button>
+      <!-- 이름, 생년월일, 나이, 성별 출력 -->
+      <h3 id="result"></h3>
+    </fieldset>
+  </body>
+  <!-- <script>
+    document.getElementById("btn").addEventListener("click", function () {
+      let today = new Date();
+      let name = document.getElementById("name").value;
+      let rNum = document.getElementById("rNum").value;
+      let myBirth =
+        rNum.charAt(rNum.indexOf("-") + 1) === `1` ||
+        rNum.charAt(rNum.indexOf("-") + 1) === `2`
+          ? `19${rNum.slice(0, 2)} / ${rNum.slice(2, 4)} / ${rNum.slice(4, 6)} `
+          : `20${rNum.slice(0, 2)} / ${rNum.slice(2, 4)} / ${rNum.slice(4, 6)}`;
+
+      let myYear =
+        rNum.charAt(rNum.indexOf("-") + 1) === `1` ||
+        rNum.charAt(rNum.indexOf("-") + 1) === `2`
+          ? `19${rNum.slice(0, 2)}`
+          : `20${rNum.slice(0, 2)}`;
+      console.log(myBirth);
+      let age = today.getFullYear() - (Number(myYear) - 1);
+      // console.log(age);
+
+      let gender =
+        rNum.charAt(rNum.indexOf("-") + 1) == 1 ||
+        rNum.charAt(rNum.indexOf("-") + 1) == 3
+          ? "남자"
+          : "여자";
+
+      let str = `이름 : ${name}\n`;
+      str += `생년월일 : ${myBirth}\n`;
+      str += `나이 : ${age}\n`;
+      str += `성별 : ${gender}\n`;
+
+      document.getElementById("result").innerText = str;
+    });
+  </script> -->
+
+  <script>
+    document.getElementById("btn").addEventListener("click", function () {
+      const result = document.getElementById("result");
+      let name = document.getElementById("name").value;
+      let rNum = document.getElementById("rNum").value;
+
+      // 010101-3123456
+      // 생년월일, 나이, 성별
+      let birth = rNum.substring(0, 6);
+      console.log(birth);
+      let getNum = rNum.charAt(6);
+
+      // 성별
+      let gender = getNum == 1 || getNum == 3 ? "남" : "여";
+      console.log(gender);
+
+      // 나이 오늘날짜연도 - 태어난 연도 2001 1997
+      const today = new Date();
+      let todayYear = today.getFullYear();
+      let birthYear = Number(birth.substring(0, 2));
+      let age =
+        getNum <= 2
+          ? todayYear - (1900 + birthYear)
+          : todayYear - (2000 + birthYear);
+      console.log(age);
+
+      result.innerText = `
+      이름 : ${name}, 생년월일 : ${birth}, 나이 : ${age}, 성별 출력 : ${gender}
+      `;
+    });
+  </script>
+</html>

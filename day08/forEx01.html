@@ -1,0 +1,28 @@
+<!DOCTYPE html>snmp
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    ul > li {
+      list-style: none;
+    }
+  </style>
+  <body>
+    구구단 : <input type="text" id="dan" /> <button id="btn">전송</button>
+    <br />
+    <ul id="ul"></ul>
+  </body>
+  <script>
+    document.getElementById("btn").addEventListener("click", () => {
+      let dan = Number(document.getElementById("dan").value);
+      let str = `<h3>${dan}단</h3>`;
+      for (let i = 1; i < 10; i++) {
+        str += `<li>${dan} x ${i} = ${dan * i}</li>`;
+      }
+      document.getElementById("ul").innerHTML = str;
+    });
+  </script>
+</html>
