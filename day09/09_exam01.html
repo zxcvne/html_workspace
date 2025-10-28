@@ -9,15 +9,16 @@
     <h1>가위 바위 보 게임을 10번 하여 승률 출력</h1>
     <button id="btn">승률 출력</button>
     <h3>10game의 승률은 <span id="result"></span>%입니다.</h3>
+
+    <ol id="ol"></ol>
+    <h3 id="h3"></h3>
   </body>
-  <script>
+  <!--<script>
     // 가위바위보 게임
     // com = random / player - random
     // 0=가위, 1 = 바위, 2=보
     // 승률 계산 (승 / (10-무))*100 소수 2자리까지 표현
     // 승패 결과 콘솔에 출력 com(가위) / player(주먹) (승)
-
-    // 데이터 변경사항 생김
 
     const item = ["가위", "바위", "보"];
     let gCnt = 0;
@@ -49,5 +50,67 @@
       ${((wCnt / (10 - dCnt)) * 100).toFixed(2)} 
       `;
     });
+  </script>-->
+  <script>
+    document.getElementById("btn").addEventListener("click", () => {
+      let win = 0;
+      let draw = 0;
+      let lose = 0;
+      const play = ["가위", "바위", "보"];
+      let str = "";
+      for (let i = 0; i < 10; i++) {
+        let player = randomNumber();
+        let com = randomNumber();
+        let result = getWinner(player, com);
+        console.log(
+          `player : ${play[player]} / com : ${play[com]} (${result})`
+        );
+        str += `<li> player : ${play[player]} / com : ${play[com]} (${result}) </li>`;
+
+        switch (result) {
+          case "win":
+            win++;
+            break;
+          case "draw":
+            draw++;
+            break;
+          case "lose":
+            lose++;
+            break;
+          default:
+            break;
+        }
+      }
+
+      console.log(`win : ${win} / draw : ${draw} / lose : ${lose}`);
+      document.getElementById("result").innerText = (
+        (win / (10 - draw)) *
+        100
+      ).toFixed(2);
+      document.getElementById("ol").innerHTML = str;
+      document.getElementById(
+        "h3"
+      ).innerText = `win : ${win} / draw : ${draw} / lose : ${lose}`;
+    });
+
+    // 랜덤 값을 리턴하는 함수
+    function randomNumber() {
+      return Math.floor(Math.random() * 3);
+    }
+
+    // 승 무 패 리턴하는 함수
+    function getWinner(userChoice, comChoice) {
+      if (userChoice == comChoice) {
+        return "draw";
+      } else if (
+        (userChoice == 0 && comChoice == 2) ||
+        (userChoice == 1 && comChoice == 0) ||
+        (userChoice == 2 && comChoice == 1)
+      ) {
+        return "win";
+      } else {
+        return "lose";
+      }
+    }
   </script>
 </html>
