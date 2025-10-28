@@ -17,7 +17,6 @@
             width: 300px;
             height: 300px;
         }
-
         #game {
             font-size: 28px;
         }
@@ -31,9 +30,9 @@
         가위바위보 이미지를 버튼태그에 넣어 선택하여 가위바위보의 승률 계산
     -->
     <div class="container">
-        <button id="sc" onclick="play(0)"><img src="../image/math_img_1.jpg" alt=""></button>
-        <button id="ro" onclick="play(1)"><img src="../image/math_img_2.jpg" alt=""></button>
-        <button id="pa" onclick="play(2)"><img src="../image/math_img_3.jpg" alt=""></button>
+        <button id="sc"><img id="0" src="../image/math_img_1.jpg" alt=""></button>
+        <button id="ro" onclick="play(1)"><img id="1" src="../image/math_img_2.jpg" alt=""></button>
+        <button id="pa" onclick="play(2)"><img id="2" src="../image/math_img_3.jpg" alt=""></button>
     </div>
     <h3 id="game"></h3>
     <h3 id="result"></h3>
@@ -41,6 +40,14 @@
     <h3 id="rate"></h3>
 </body>
 <script>
+
+    document.addEventListener('click', (e)=>{
+      // 모든 화면에 이벤트가 달림
+      // 동적으로 생기는 모든 객체에 이벤트 추가
+      console.log(e.target.id);
+      play(e.target.id);
+    })
+
     const game = ["가위", "바위", "보"];
    /*
     let win = 0;
