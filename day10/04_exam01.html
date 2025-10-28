@@ -21,6 +21,9 @@
         #game {
             font-size: 28px;
         }
+        #result {
+          font-size: 24px;
+        }
     </style>
 </head>
 <body>
@@ -33,9 +36,9 @@
         <button id="pa" onclick="play(2)"><img src="../image/math_img_3.jpg" alt=""></button>
     </div>
     <h3 id="game"></h3>
-    <h3 id="gCnt"></h3>
-    <h3 id="h3"></h3>
     <h3 id="result"></h3>
+    <h3 id="h3"></h3>
+    <h3 id="rate"></h3>
 </body>
 <script>
     const game = ["가위", "바위", "보"];
@@ -57,10 +60,10 @@
       let result = getWinner(player, comNum);
       resultCount[result]++;
 
-        document.getElementById("game").innerHTML = `결과 : com(${game[comNum]}) / player(${game[player]}) (${result})`;
-        document.getElementById("gCnt").innerText = `현재 전적`;
+        document.getElementById("game").innerHTML = `결과 : com(${game[comNum]}) / player(${game[player]})`;
+        document.getElementById("result").innerText = `${result}`;
         document.getElementById("h3").innerText = `win : ${resultCount.win} / draw : ${resultCount.draw} / lose : ${resultCount.lose} / count : ${gCnt}`;
-        document.getElementById("result").innerText = `승률 : ${getWinRate().toFixed(2)}%`;
+        document.getElementById("rate").innerText = `승률 : ${getWinRate().toFixed(2)}%`;
     }
 
     function randomNumber() {
