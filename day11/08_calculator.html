@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      margin: 150px auto;
+      width: 350px;
+      border: 1px solid gray;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 5px 5px 5px gray;
+    }
+    .container > .header {
+      border: 1px solid rgb(250, 193, 124);
+      height: 100px;
+      border-radius: 10px;
+      background-color: bisque;
+    }
+    #result {
+      text-align: right;
+      padding: 10px;
+    }
+    .container > .main > .box {
+      height: 80px;
+      display: flex;
+      box-sizing: border-box;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+    .container > .main > .box > button {
+      border: none;
+      width: 22%;
+      border-radius: 10px;
+      background-color: rgb(234, 136, 136);
+      font-size: 32px;
+    }
+
+    .container > .main > .box > button:hover {
+      background-color: rgb(241, 190, 190);
+      cursor: pointer;
+    }
+
+    .container > .clear > button {
+      border: none;
+      width: 100%;
+      height: 80px;
+      border-radius: 10px;
+      background-color: rgb(129, 166, 116);
+      font-size: 32px;
+    }
+
+    .container > .clear > button:hover {
+      background-color: rgb(119, 174, 101);
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 id="result"></h1>
+      </div>
+      <div class="main">
+        <div class="box1 box">
+          <button value="7">7</button>
+          <button value="8">8</button>
+          <button value="9">9</button>
+          <button class="oper" value="+">+</button>
+        </div>
+        <div class="box2 box">
+          <button value="4">4</button>
+          <button value="5">5</button>
+          <button value="6">6</button>
+          <button class="oper" value="-">-</button>
+        </div>
+        <div class="box3 box">
+          <button value="1">1</button>
+          <button value="2">2</button>
+          <button value="3">3</button>
+          <button class="oper" value="*">*</button>
+        </div>
+        <div class="box4 box">
+          <button value=".">.</button>
+          <button value="0">0</button>
+          <button class="oper" value="=">=</button>
+          <button class="oper" value="/">/</button>
+        </div>
+      </div>
+      <div class="clear"><button id="clear">C</button></div>
+    </div>
+  </body>
+  <script>
+    const result = document.getElementById("result");
+    const oper = document.getElementsByClassName("oper");
+    let num1 = 0;
+    let num2 = 0;
+    let str = "";
+    document.getElementById("container"),
+      addEventListener("click", (e) => {
+        if (e.target.value && e.target.value != "=") {
+          console.log(e.target.value);
+          str += e.target.value;
+          result.innerText = str;
+          if (
+            e.target.value == "+" ||
+            e.target.value == "-" ||
+            e.target.value == "*" ||
+            e.target.value == "/"
+          ) {
+            if (num1 == 0) {
+              num1 = Number(str);
+            }
+          }
+          if (num2 == 0 && num1 != 0) {
+            num2 = Number(str);
+          }
+        }
+      });
+    oper, addEventListener("click", operator);
+
+    function operator() {
+      num1 = Number(str);
+      console.log(num1);
+      switch (oper.value) {
+        case "+":
+          break;
+        case "-":
+          break;
+        case "*":
+          break;
+        case "/":
+          break;
+        case "=":
+          break;
+        default:
+          break;
+      }
+    }
+
+    document.getElementById("clear").addEventListener("click", () => {
+      location.reload();
+    });
+  </script>
+</html>

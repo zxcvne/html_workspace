@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      margin: 40px auto;
+      width: 300px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border: 3px solid #333;
+      background-color: antiquewhite;
+      border-radius: 10px;
+    }
+    h1 {
+      font-size: 32px;
+    }
+    button {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      color: #333;
+      font-size: 20px;
+    }
+    button:hover {
+      background-color: #d9d9d9;
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+    h1 > span {
+      display: none;
+    }
+  </style>
+  <body>
+    <!-- 
+        button 2개 준비
+        + 숫자 -
+
+        + => 값이 1씩 증가
+        - => 값이 1씩 감소 (값이 0이면 더이상 감소x)
+    -->
+    <div class="container">
+      <button id="incre">+</button>
+      <h1 id="num">
+        0
+        <span>숨겨진 텍스트</span>
+      </h1>
+      <button id="decre">-</button>
+    </div>
+    <!--
+    <script>
+      let num = 0;
+      const number = document.getElementById("num");
+      if (num < 0) {
+        num = 0;
+      }
+      document.getElementById("incre").addEventListener("click", () => {
+        num++;
+        number.innerText = num;
+      });
+      document.getElementById("decre").addEventListener("click", () => {
+        if (num > 0) {
+          num--;
+          number.innerText = num;
+        }
+      });
+    </script> -->
+
+    <script>
+      const number = document.getElementById("num");
+      const incre = document.getElementById("incre");
+      const decre = document.getElementById("decre");
+
+      incre.addEventListener("click", () => {
+        // 태그 안쪽의 글자를 가져오는 방법
+        // innerText : 보여지는 글자만 가져옴
+        // textContent : display : none 글자도 가져옴
+        let currVal = Number(number.innerText);
+        console.log(number.innerText);
+        console.log(number.innerHTML);
+        console.log(number.textContent);
+
+        number.innerText = currVal + 1;
+      });
+
+      decre.addEventListener("click", () => {
+        let currVal = Number(number.innerText);
+        if (currVal <= 0) {
+          number.innerText = 0;
+        } else {
+          number.innerText = currVal - 1;
+        }
+      });
+    </script>
+  </body>
+</html>

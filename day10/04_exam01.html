@@ -41,11 +41,14 @@
 </body>
 <script>
 
+
     document.addEventListener('click', (e)=>{
       // 모든 화면에 이벤트가 달림
       // 동적으로 생기는 모든 객체에 이벤트 추가
       console.log(e.target.id);
-      play(e.target.id);
+      if(e.target.id){
+        play(e.target.id);
+      }
     })
 
     const game = ["가위", "바위", "보"];

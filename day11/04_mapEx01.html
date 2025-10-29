@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .g {
+        color: green;
+      }
+
+      .r {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <legend>과목추가</legend>
+      과목 : <input type="text" id="sub" /> <br />
+      점수 : <input type="number" id="score" /> <br />
+      <hr />
+      <button id="addBtn">추가</button>
+      <button id="printBtn">출력</button>
+      <button id="resultBtn">결과</button>
+      <ul id="ul"></ul>
+      <h3 id="h3"></h3>
+    </fieldset>
+
+    <!-- 
+        과목, 점수 input 2개 생성
+        추가 버튼생성 => map에 저장
+        출력 버튼 생성 => ul => li 형태로 출력 html : 89
+        결과 버튼 생성 => 합계, 평균, 합격여부 (60점이상이면 pass) => h3
+    -->
+  </body>
+  <!--
+  <script>
+    const myMap = new Map();
+    let str = "";
+    let sum = 0;
+    let avg = 0;
+    let sub = document.getElementById("sub");
+    let score = document.getElementById("score");
+
+    document.getElementById("addBtn").addEventListener("click", addFunc);
+    document.getElementById("printBtn").addEventListener("click", printFunc);
+    document.getElementById("resultBtn").addEventListener("click", resultFunc);
+
+    function addFunc() {
+      if (Number(score.value) >= 0 && Number(score.value) <= 100) {
+        myMap.set(`${sub.value}`, Number(score.value));
+      } else {
+        alert("점수는 0~100점 중에 입력 가능합니다.");
+        return;
+      }
+      str += `<li>`;
+      str += `${sub.value} : ${myMap.get(sub.value)}`;
+      str += `</li>`;
+      sum += myMap.get(sub.value);
+      avg = sum / myMap.size;
+
+      console.log(myMap);
+      console.log(`sum : ${sum}`);
+      console.log(`avg : ${avg}`);
+
+      sub.value = "";
+      score.value = "";
+    }
+
+    function printFunc() {
+      document.getElementById("ul").innerHTML = str;
+    }
+
+    function resultFunc() {
+      if (sum != 0) {
+        if (avg >= 60) {
+          document.getElementById(
+            "h3"
+          ).innerHTML = `<span class="g">Pass</span>`;
+        } else {
+          document.getElementById(
+            "h3"
+          ).innerHTML = `<span class="r">Fail</span>`;
+        }
+      }
+    }
+  </script> -->
+
+  <script>
+    const myMap = new Map();
+    const ul = document.getElementById("ul");
+    const h3 = document.getElementById("h3");
+
+    document.getElementById("resultBtn").addEventListener("click", () => {
+      let sum = 0;
+      myMap.forEach((v) => (sum += v));
+      console.log(sum);
+      let avg = sum / map.size;
+      let pass = avg >= 60 ? "pass" : "fail";
+
+      h3.innerText = `sum:${sum} / avg:${avg.toFixed(2)} / pass:${pass}`;
+    });
+
+    document.getElementById("printBtn").addEventListener("click", () => {
+      let str = "";
+      myMap.forEach((v, k) => (str += `<li> ${k} : ${v} </li>`));
+      ul.innerHTML = str;
+    });
+
+    document.getElementById("addBtn").addEventListener("click", () => {
+      const subject = document.getElementById("sub");
+      const scores = document.getElementById("score");
+      let score = Number(scores.value);
+
+      if (isNaN(score) || score < 0 || score > 100) {
+        alert("0~100사이의 값을 입력하세요.");
+        return;
+      }
+      myMap.set(subject.value, score);
+      console.log(myMap);
+      subject.value = "";
+      scores.value = "";
+
+      // ul li 로 추가
+      /*let str = "";
+      myMap.forEach((v, k) => (str += `<li> ${k} : ${v} </li>`));
+      ul.innerHTML = str;*/
+    });
+  </script>
+</html>

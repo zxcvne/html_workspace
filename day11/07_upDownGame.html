@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #result {
+      font-size: 20px;
+    }
+    .container {
+      border: 1px solid #333;
+      display: flex;
+      margin: 10px auto;
+      width: 700px;
+      height: 100px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .container button {
+      height: 100%;
+      background-color: #d9d9dd;
+    }
+    #printMsg {
+      font-size: 20px;
+    }
+    .container button:first-child {
+      border: none;
+      border-right: 1px solid #333;
+      font-size: 20px;
+    }
+    .container button:first-child:hover {
+      cursor: pointer;
+      background-color: rgba(128, 128, 128, 0.507);
+    }
+    .container button:last-child:hover {
+      cursor: pointer;
+      background-color: rgba(128, 128, 128, 0.507);
+    }
+
+    .container button:last-child {
+      border: none;
+      border-left: 1px solid #333;
+      font-size: 20px;
+    }
+
+    .container2 {
+      margin: 10px auto;
+      border: 1px solid #333;
+      width: 700px;
+      height: 700px;
+      text-align: center;
+    }
+    .main-top {
+      width: 100%;
+      display: flex;
+      height: 80px;
+    }
+    .main-top > input {
+      width: 70%;
+      text-align: center;
+      font-size: 32px;
+    }
+    .main-top > button {
+      width: 30%;
+      font-size: 32px;
+    }
+  </style>
+  <body>
+    <!-- 
+        1~99까지의 숫자 중 하나를 랜덤으로 선택하여 해당 숫자를 맞추는 게임
+        dom : document object
+        bom : window object
+    -->
+    <div class="container">
+      <button id="random">랜던 숫자 생성 버튼</button>
+      <h1 id="printMsg"></h1>
+      <button id="re">다시시도</button>
+    </div>
+    <div class="container2">
+      <div class="main-top">
+        <input type="number" id="myNum" min="1" max="99" />
+        <button id="compareNum">제출!</button>
+      </div>
+      <h1 id="result"></h1>
+    </div>
+  </body>
+  <!--<script>
+    // 새로고침 (다시시도)
+    let comNum = 0;
+    let cnt = 0;
+    document.getElementById("random").addEventListener("click", () => {
+      comNum = Math.floor(Math.random() * 99) + 1;
+      console.log(comNum);
+      document.getElementById(
+        "printMsg"
+      ).innerText = `랜덤수가 생성되었습니다.`;
+    });
+
+    document.getElementById("compareNum").addEventListener("click", () => {
+      let result = document.getElementById("result");
+      let userNum = document.getElementById("myNum");
+
+      let str = "";
+      if (comNum == 0) {
+        alert("랜덤수가 생성되지 않았습니다.");
+        return;
+      }
+      if (userNum.value > 99 || userNum.value < 1) {
+        alert("값은 1~99까지 입력 가능합니다.");
+        userNum.value = "";
+        return;
+      }
+
+      if (comNum != 0) {
+        if (userNum.value < comNum) {
+          str += `UP`;
+          cnt++;
+        } else if (userNum.value > comNum) {
+          str += `DOWN`;
+          cnt++;
+        } else {
+          str += `정답`;
+          cnt++;
+        }
+        if (cnt == 21) {
+          alert("20회 초과 게임실패");
+          setTimeout(() => {
+            location.reload();
+          }, 3000);
+          return;
+        }
+        result.innerHTML += `${userNum.value} / ${str} / 실행횟수 : ${cnt} <br />`;
+        if (userNum.value == comNum) {
+          result.innerHTML += `<br />${cnt}번 만에 정답~!!`;
+          setTimeout(() => {
+            location.reload();
+          }, 3000);
+        }
+      }
+    });
+
+    document.getElementById("re").addEventListener("click", () => {
+      window.location.reload(); // window는 생략 가능함 location.reload();
+    });
+  </script>-->
+  <script>
+    const printMsg = document.getElementById("printMsg");
+    const result = document.getElementById("result");
+    let computerNum = 0;
+    let count = 0;
+    let str = "";
+
+    document.getElementById("compareNum").addEventListener("click", () => {
+      if (computerNum == 0) {
+        result.innerText = `랜덤수가 생성되지 않았습니다.`;
+      } else {
+        if (count == 5) {
+          str += `5회 횟수제한을 초과하였습니다. \n`;
+          result.innerText = str;
+          return;
+        }
+        let myNum = Number(document.getElementById("myNum").value);
+        if (myNum <= 0 || myNum >= 100) {
+          str += `1~99까지의 숫자만 가능합니다.`;
+        } else {
+          count++;
+          if (myNum == computerNum) {
+            str += `횟수 : ${count} / 정답!!. ${computerNum}였습니다.\n`;
+          } else if (computerNum > myNum) {
+            str += `횟수 : ${count} / ${myNum} => up!! \n`;
+          } else {
+            str += `횟수 : ${count} / ${myNum} => down!! \n`;
+          }
+        }
+        result.innerText = str;
+      }
+      // 다시 입력가능한 상태로 비워둠
+      document.getElementById("myNum").value = "";
+    });
+
+    document.getElementById("random").addEventListener("click", () => {
+      computerNum = Math.floor(Math.random() * 99) + 1;
+      printMsg.innerText = "컴퓨터가 랜덤수를 생성했습니다. (1~99)";
+      console.log(computerNum);
+    });
+
+    document.getElementById("re").addEventListener("click", () => {
+      window.location.reload(); // window는 생략 가능함 location.reload();
+    });
+  </script>
+</html>
