@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    숫자 : <input type="text" id="num" />
+    <button id="printBtn">print</button>
+    <h3 id="printResult"></h3>
+  </body>
+  <!--<script>
+    // input에 숫자만 들어올 수 있게 try~catch로 체크
+    // 숫자가 아니면 printResult= '숫자만 입력해주세요' throw로 에러 처리.
+    // 숫자면 입력된 숫자값에 2 결과를 printResult 출력
+
+    document.getElementById("printBtn").addEventListener("click", textOrNum);
+
+    function textOrNum() {
+      const inputNum = document.getElementById("num").value;
+      try {
+        if (isNaN(inputNum)) {
+          throw new Error("숫자만 입력해주세요");
+        }
+        console.log(`${inputNum}x${2}=${inputNum * 2}`);
+        document.getElementById("printResult").innerText = `${inputNum * 2}`;
+      } catch (error) {
+        console.log(error);
+        console.log(error.name);
+        console.log(error.message);
+        document.getElementById("printResult").innerText = error.message;
+      }
+    }
+  </script> -->
+  <script>
+    document.getElementById("printBtn").addEventListener("click", () => {
+      console.log("시작");
+      const printResult = document.getElementById("printResult");
+      let number = document.getElementById("num").value;
+      try {
+        if (isNaN(number)) {
+          throw new Error("숫자만 입력 가능합니다.");
+        }
+        number = Number(number) * 2;
+        printResult.innerText = number;
+      } catch (error) {
+        console.log(error);
+        printResult.innerText = error.message;
+      }
+      console.log("종료!!");
+    });
+  </script>
+</html>
