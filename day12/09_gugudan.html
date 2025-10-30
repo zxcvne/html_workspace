@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .btn {
+      margin-top: 10px;
+    }
+    #container {
+      display: none;
+    }
+    #container > ol > li > input {
+      background-color: rgb(255, 204, 17);
+    }
+  </style>
+  <body>
+    <button class="btn" id="btn1">문제 출제</button><br />
+    <div id="container">
+      <ol id="ol">
+        <!-- <li id="p1">1*1 = <input type="text" /></li>
+        <li id="p2">1*1 = <input type="text" /></li>
+        <li id="p3">1*1 = <input type="text" /></li>
+        <li id="p4">1*1 = <input type="text" /></li>
+        <li id="p5">1*1 = <input type="text" /></li>
+        <li id="p6">1*1 = <input type="text" /></li>
+        <li id="p7">1*1 = <input type="text" /></li>
+        <li id="p8">1*1 = <input type="text" /></li>
+        <li id="p9">1*1 = <input type="text" /></li>
+        <li id="p10">1*1 = <input type="text" /></li> -->
+      </ol>
+    </div>
+    <button class="btn" id="btn2">정답 확인</button> <br />
+    <button class="btn" id="btn3">초기화</button> <br />
+  </body>
+  <script>
+    let value = "";
+    document.getElementById("btn1").addEventListener("click", () => {
+      document.getElementById("container").style.display = "block";
+      const ol = document.getElementById("ol");
+      let str = "";
+      for (let i = 0; i < 10; i++) {
+        let num1 = Math.floor(Math.random() * 9) + 1;
+        let num2 = Math.floor(Math.random() * 9) + 1;
+        value += `${num1 * num2},`;
+        str += `<li>${num1} * ${num2} = <input type="text"/></li>`;
+      }
+      ol.innerHTML = str;
+    });
+    console.log(value);
+    document.getElementById("btn3").addEventListener("click", () => {
+      location.reload();
+    });
+  </script>
+</html>
