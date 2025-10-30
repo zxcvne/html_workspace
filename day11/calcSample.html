@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calculator</title>
+      </head>
+      <style>
+        .container {
+          background-color: #f5f3f3;
+          margin: 150px auto;
+          width: 350px;
+          border: 2px solid rgb(81, 81, 81);
+          padding: 20px;
+          border-radius: 20px;
+          box-shadow: 5px 5px 5px #333;
+        }
+        .container > .header {
+          border: 1px solid rgb(255, 196, 124);
+          height: 120px;
+          border-radius: 10px;
+          background-color: bisque;
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+        #expression {
+          text-align: right;
+          font-size: 24px;
+          color: #666;
+          height: 25px;
+          margin: 0;
+        }
+        #result {
+          text-align: right;
+          padding: 0;
+          margin: 0;
+          font-size: 32px;
+          word-break: break-all;
+        }
+        .container > .main > .box {
+          height: 80px;
+          display: flex;
+          box-sizing: border-box;
+          justify-content: space-between;
+          margin: 10px 0;
+        }
+        .container > .main > .box > button {
+          border: none;
+          width: 22%;
+          border-radius: 10px;
+          background-color: rgb(255, 124, 124);
+          font-size: 32px;
+        }
+
+        .container > .main > .box > button:hover {
+          background-color: rgb(250, 177, 177);
+          cursor: pointer;
+        }
+
+        .container > .clear > button {
+          border: none;
+          width: 100%;
+          height: 80px;
+          border-radius: 10px;
+          background-color: rgb(255, 81, 81);
+          font-size: 32px;
+        }
+
+        .container > .clear > button:hover {
+          background-color: rgb(250, 177, 177);
+          cursor: pointer;
+        }
+      </style>
+      <body>
+        <div class="container">
+          <div class="header">
+            <p id="expression"></p>
+            <h1 id="result">0</h1>
+          </div>
+          <div class="main">
+            <div class="box1 box">
+              <button class="num" value="7">7</button>
+              <button class="num" value="8">8</button>
+              <button class="num" value="9">9</button>
+              <button class="oper" value="+">+</button>
+            </div>
+            <div class="box2 box">
+              <button class="num" value="4">4</button>
+              <button class="num" value="5">5</button>
+              <button class="num" value="6">6</button>
+              <button class="oper" value="-">-</button>
+            </div>
+            <div class="box3 box">
+              <button class="num" value="1">1</button>
+              <button class="num" value="2">2</button>
+              <button class="num" value="3">3</button>
+              <button class="oper" value="x">x</button>
+            </div>
+            <div class="box4 box">
+              <button class="num" value=".">.</button>
+              <button class="num" value="0">0</button>
+              <button class="oper" value="=">=</button>
+              <button class="oper" value="÷">÷</button>
+            </div>
+          </div>
+          <div class="clear"><button id="clear">C</button></div>
+        </div>
+      </body>
+      <script>
+        const result = document.getElementById("result");
+        const expression = document.getElementById("expression");
+        let currentInput = "0";
+        let previousInput = null;
+        let operation = null;
+
+        // 화면 업데이트 함수
+        function updateDisplay() {
+          result.innerText = currentInput;
+
+          if (previousInput !== null && operation !== null) {
+            expression.innerText = `${previousInput} ${operation}`;
+          } else {
+            expression.innerText = "";
+          }
+        }
+
+        // 숫자 버튼 클릭
+        const numButtons = document.querySelectorAll(".num");
+        numButtons.forEach((button) => {
+          button.addEventListener("click", (e) => {
+            const value = e.target.value;
+
+            // 0으로 시작하고 소수점이 아닌 경우 덮어쓰기
+            if (currentInput === "0" && value !== ".") {
+              currentInput = value;
+            }
+            // 이미 소수점이 있는 경우 추가 방지
+            else if (value === "." && currentInput.includes(".")) {
+              return;
+            }
+            // 그 외의 경우 추가
+            else {
+              currentInput += value;
+            }
+
+            updateDisplay();
+          });
+        });
+
+        // 연산자 버튼 클릭
+        const operButtons = document.querySelectorAll(".oper");
+        operButtons.forEach((button) => {
+          button.addEventListener("click", (e) => {
+            const value = e.target.value;
+
+            if (value === "=") {
+              if (previousInput !== null && operation !== null) {
+                currentInput = calculate(
+                  previousInput,
+                  currentInput,
+                  operation
+                );
+                previousInput = null;
+                operation = null;
+                updateDisplay();
+              }
+            } else {
+              // 이전 연산이 있었다면 먼저 계산
+              if (previousInput !== null && operation !== null) {
+                currentInput = calculate(
+                  previousInput,
+                  currentInput,
+                  operation
+                );
+              }
+
+              previousInput = currentInput;
+              operation = value;
+              currentInput = "0";
+              updateDisplay();
+            }
+          });
+        });
+
+        // 계산 함수
+        function calculate(num1, num2, op) {
+          const a = parseFloat(num1);
+          const b = parseFloat(num2);
+          let result;
+
+          switch (op) {
+            case "+":
+              result = a + b;
+              break;
+            case "-":
+              result = a - b;
+              break;
+            case "×":
+              result = a * b;
+              break;
+            case "÷":
+              if (b === 0) {
+                return "0으로 나눌 수 없습니다";
+              }
+              result = a / b;
+              break;
+            default:
+              return num2;
+          }
+
+          // 소수점 처리 (너무 긴 소수점 방지)
+          return typeof result === "number"
+            ? String(Math.round(result * 100000000) / 100000000)
+            : result;
+        }
+
+        // Clear 버튼
+        document.getElementById("clear").addEventListener("click", () => {
+          currentInput = "0";
+          previousInput = null;
+          operation = null;
+          updateDisplay();
+        });
+
+        // 초기 화면 업데이트
+        updateDisplay();
+      </script>
+    </html>
+  </body>
+</html>
