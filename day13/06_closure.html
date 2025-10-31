@@ -31,6 +31,9 @@
       style="width: 100px; height: 100px; background-color: red"
     ></div>
     <script>
+      "use strict";
+      a = 10;
+      console.log(a);
       let box = document.querySelector(".box");
       let toggleBtn = document.querySelector(".toggle");
 
@@ -44,9 +47,65 @@
         };
       }
 
-      let toggle = closure();
+      let toggle = closure(); // 클로저 반환
       console.log(toggle);
+
+      // 이벤트에 할당
       toggleBtn.addEventListener("click", toggle);
+    </script>
+
+    <button id="count">counter</button>
+    <h3 id="result"></h3>
+    <script>
+      const h3 = document.getElementById("result");
+      const count = document.getElementById("count");
+      function outer() {
+        let count = 0; // 외부 변수
+
+        function inner() {
+          count++;
+          h3.innerText = count;
+        }
+
+        return inner;
+      }
+
+      const counter = outer();
+      count.addEventListener("click", counter);
+    </script>
+
+    <h1 id="print">0</h1>
+    <button id="plusBtn">+</button>
+    <button id="minusBtn">-</button>
+
+    <script>
+      function counterFactory() {
+        // 외부함수
+        let count = 0;
+
+        return function (type) {
+          if (type == "plus") {
+            count++;
+          } else if (type == "minus") {
+            if (count == 0) {
+              count = 0;
+            } else {
+              count--;
+            }
+          }
+          document.getElementById("print").textContent = count;
+        };
+      }
+
+      const counter2 = counterFactory();
+
+      document.getElementById("plusBtn").addEventListener("click", () => {
+        counter2("plus");
+      });
+
+      document.getElementById("minusBtn").addEventListener("click", () => {
+        counter2("minus");
+      });
     </script>
   </body>
 </html>
