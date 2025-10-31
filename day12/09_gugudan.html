@@ -37,6 +37,7 @@
   </body>
   <script>
     let value = "";
+    const arr = [];
     document.getElementById("btn1").addEventListener("click", () => {
       document.getElementById("container").style.display = "block";
       const ol = document.getElementById("ol");
@@ -45,11 +46,39 @@
         let num1 = Math.floor(Math.random() * 9) + 1;
         let num2 = Math.floor(Math.random() * 9) + 1;
         value += `${num1 * num2},`;
-        str += `<li>${num1} * ${num2} = <input type="text"/></li>`;
+        str += `<li>${num1} * ${num2} = <input type="text" id="a${
+          i + 1
+        }"/></li>`;
       }
       ol.innerHTML = str;
     });
-    console.log(value);
+
+    document.getElementById("btn2").addEventListener("click", () => {
+      let str = "";
+      for (let i = 0; i < 10; i++) {
+        str += document.getElementById(`a${i + 1}`).value + ",";
+      }
+      const user = str.split(",");
+      user.pop();
+      console.log(user);
+      const arr = value.split(",");
+      arr.pop();
+      console.log(arr);
+      for (let i = 0; i < arr.length; i++) {
+        checked(user, arr, i + 1);
+      }
+    });
+
+    function checked(user, correct, i) {
+      if (user[i] == correct[i]) {
+        document.getElementById(`a${i}`).value += `${user[i]}   ✔`;
+        console.log("✔");
+      } else {
+        document.getElementById(`a${i}`).value += `${user[i]}   ❌`;
+        console.log("❌");
+      }
+    }
+
     document.getElementById("btn3").addEventListener("click", () => {
       location.reload();
     });
