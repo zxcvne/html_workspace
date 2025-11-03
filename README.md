@@ -17,7 +17,7 @@ HTML, CSS, JavaScript 학습 내용을 정리한 저장소입니다.
 ### CSS
 - 선택자와 우선순위
 - 박스 모델
-- Flexbox와 Grid 레이아웃
+- Flexbox레이아웃
 - 반응형 디자인 (Media Queries)
 - CSS 애니메이션과 전환 효과
 - CSS 변수와 전처리기
