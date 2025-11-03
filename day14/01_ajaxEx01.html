@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: "Exo2-VariableFont_wght";
+        src: url(../font/Exo2-VariableFont_wght.ttf);
+      }
+      * {
+        font-family: "Exo2-VariableFont_wght";
+      }
+      #header {
+        margin: 50px auto;
+        text-align: center;
+      }
+      #header-title {
+        font-size: 32px;
+        font-weight: 700;
+        margin: 20px;
+      }
+      #subText {
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      #section {
+        margin-top: 80px;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      #section-title {
+        font-size: 26px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json -->
+    <header id="header"></header>
+    <section id="section"></section>
+    <script>
+      const API_URL =
+        "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
+      const $header = document.getElementById("header");
+      const $section = document.getElementById("section");
+
+      const getData = async () => {
+        try {
+          let response = await fetch(API_URL);
+          let data = await response.json();
+          console.log(data);
+          console.log(data.members[0]);
+          console.log(data.members[1]);
+          console.log(data.members[2]);
+          printHeader(data);
+          printSection(data.members[0]);
+          printSection(data.members[1]);
+          printSection(data.members[2]);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      getData();
+
+      function printHeader(obj) {
+        let str = "";
+        for (const key in obj) {
+          if (key == "squadName") {
+            str += `<div id="header-title">${obj[key]}</div>`;
+          } else if (key == "homeTown") {
+            str += `<span id ="subText">${key} : ${obj[key]} // `;
+          } else if (key == "formed") {
+            str += `${key} : ${obj[key]}</span>`;
+          }
+        }
+        $header.innerHTML += str;
+      }
+
+      function printSection(obj) {
+        let str = "<div>";
+        for (const key in obj) {
+          if (key == "name") {
+            str += `<div id="section-title">${obj[key]}</div>`;
+          } else if (key == "powers") {
+            str += `${key}: <br/>`;
+            str += `<ul>`;
+            for (let i = 0; i < obj[key].length; i++) {
+              str += `<li>${obj[key][i]}</li>`;
+            }
+            str += `</ul>`;
+          } else {
+            str += `${key} : ${obj[key]}<br />`;
+          }
+        }
+        str += "</div>";
+        $section.innerHTML += str;
+      }
+    </script>
+  </body>
+</html>
