@@ -1,4 +1,4 @@
-# 🌐 Web Development Study Repository
+# 공공데이터I front Repository
 
 HTML, CSS, JavaScript 학습 내용을 정리한 저장소입니다.
 
