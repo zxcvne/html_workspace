@@ -228,7 +228,10 @@
           memberStr += "</div></div>";
           $section.innerHTML += memberStr;
           member.powers.forEach((v) => {
-            document.getElementById(`power${i}`).innerHTML += `<li>${v}</li>`;
+            let str = v.split(" ");
+            document.getElementById(
+              `power${i}`
+            ).innerHTML += `<li>${str[0]}<br / >${str[1]}</li>`;
           });
         }
       }
