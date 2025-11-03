@@ -61,8 +61,8 @@ HTML, CSS, JavaScript 학습 내용을 정리한 저장소입니다.
 
 - [x] HTML 기초
 - [x] CSS 기초
-- [x] JavaScript 기초
-- [x] DOM 조작
 - [x] 반응형 디자인
+- [x] JavaScript 기초
+- [x] DOM 조작  
 - [ ] 프로젝트 완성
 
