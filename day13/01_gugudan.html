@@ -53,32 +53,32 @@
 
     // {once : true} : 이벤트가 트리거 될 때 리스너를 자동으로 삭제
     // 정답확인
-    document.getElementById("compareBtn").addEventListener(
-      "click",
-      () => {
-        let correct = 0; // 정답 개수
-        let count = 0;
-        const userInput = document.querySelectorAll(".user");
-        console.log(userInput);
+    document.getElementById("compareBtn").addEventListener("click", () => {
+      let correct = 0; // 정답 개수
+      let count = 0;
+      const userInput = document.querySelectorAll(".user");
+      console.log(userInput);
 
-        while (count < 10) {
-          console.log(userInput[count]);
-          if (Number(userInput[count].value) == ansObj[`ans${count}`]) {
-            correct++;
-            userInput[count].value += `\t ✅`;
-            userInput[count].style.backgroundColor = "coral";
-          } else {
-            userInput[count].value += `\t ❎`;
-          }
-          count++;
+      while (count < 10) {
+        console.log(userInput[count]);
+        if (Number(userInput[count].value) == ansObj[`ans${count}`]) {
+          correct++;
+          userInput[count].value += `\t ✅`;
+          userInput[count].style.backgroundColor = "coral";
+        } else {
+          userInput[count].value += `\t ❎`;
         }
-        document.getElementById(
-          "print"
-        ).innerText = `정답개수 : ${correct} / 정답률 ${
-          (correct / count) * 100
-        }%`;
-      },
-      { once: true }
-    );
+        count++;
+      }
+      document.getElementById(
+        "print"
+      ).innerText = `정답개수 : ${correct} / 정답률 ${
+        (correct / count) * 100
+      }%`;
+      // 이벤트를 한번만 발생 시키고 싶다면 addEventlistener의 3번째 메개변수 인자로 { once: true }를 사용
+      {
+        once: true;
+      }
+    });
   </script>
 </html>
