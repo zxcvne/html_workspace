@@ -12,7 +12,6 @@ HTML, CSS, JavaScript 학습 내용을 정리한 저장소입니다.
 - 기본 구조와 태그
 - 시맨틱 HTML5 요소
 - 폼과 입력 검증
-- 멀티미디어 요소
 
 ### CSS
 - 선택자와 우선순위
@@ -20,7 +19,6 @@ HTML, CSS, JavaScript 학습 내용을 정리한 저장소입니다.
 - Flexbox레이아웃
 - 반응형 디자인 (Media Queries)
 - CSS 애니메이션과 전환 효과
-- CSS 변수와 전처리기
 
 ### JavaScript
 - 변수, 데이터 타입, 연산자
