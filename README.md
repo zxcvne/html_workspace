@@ -55,7 +55,6 @@ HTML, CSS, JavaScript 학습 내용을 정리한 저장소입니다.
 
 - [MDN Web Docs](https://developer.mozilla.org/)
 - [W3Schools](https://www.w3schools.com/)
-- [JavaScript.info](https://javascript.info/)
 - [bootstrap](https://getbootstrap.com/)
 
 ## 📈 학습 진행도
