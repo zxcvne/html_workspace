@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      background-color: rgb(194, 219, 150);
+      margin: 50px auto;
+      text-align: center;
+      width: 500px;
+      border: 1px solid #333;
+      border-radius: 20px;
+      padding: 10px;
+      box-shadow: 5px 5px 5px gray;
+    }
+    input {
+      border: none;
+      outline: none;
+    }
+    button {
+      background-color: rgb(233, 233, 160);
+      border: 1px solid rgb(153, 153, 122);
+    }
+    button:hover {
+      cursor: pointer;
+      background-color: #e9e625;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <button id="startBtn">게임시작</button>
+      <button id="resetBtn">다시시작</button>
+      <h1 id="comMsg"></h1>
+      숫자 입력 : <input type="text" id="myNum" />
+      <button id="tryBtn">게임확인</button>
+      <ol id="tries"></ol>
+    </div>
+
+    <script>
+      /*
+        1. 게임시작 전 입력 금지.
+        2. 중복 값 X
+        3. 반드시 3자리
+        4. 문자X
+      */
+      // comNum 배열과, 사용자 value 값의 배열 비교
+      // 값 위치가 동일하면 strike, 값만 동일하면 ball
+      // 일치하는 값이 없다면 out
+
+      const $startBtn = document.getElementById("startBtn");
+      const $resetBtn = document.getElementById("resetBtn");
+      const $comMsg = document.getElementById("comMsg");
+      const $myNum = document.getElementById("myNum");
+      const $tries = document.getElementById("tries");
+      const $tryBtn = document.getElementById("tryBtn");
+      const comNum = new Array();
+      $startBtn.addEventListener("click", addRandom, { once: true });
+      $resetBtn.addEventListener("click", () => {
+        window.location.reload();
+      });
+      $tryBtn.addEventListener("click", checked);
+
+      function addRandom() {
+        const set = new Set();
+        set.add(Math.floor(Math.random() * 9) + 1);
+        while (set.size < 3) {
+          let random = Math.floor(Math.random() * 10);
+          set.add(random);
+        }
+        for (let i of set) {
+          comNum.push(i);
+        }
+        $comMsg.innerText = "랜덤수가 생성되었습니다.";
+      }
+
+      function checked() {
+        // 랜덤 수 생성후에만 입력가능
+        if (comNum.length == 0) {
+          return;
+        }
+        // 숫자만 입력가능
+        else if (!Number($myNum.value)) {
+          return;
+        }
+        // 3자리만 입력 가능
+        else if ($myNum.value.length != 3) {
+          return;
+        } else {
+          let userNum = $myNum.value.split("");
+          // userNum의 중복 값 체크
+          let checkedUserNum = new Set(userNum);
+          if (checkedUserNum.size < 3) {
+            return;
+          }
+          let s = 0;
+          let b = 0;
+          let o = 3;
+          for (let i = 0; i < userNum.length; i++) {
+            for (let j = 0; j < userNum.length; j++) {
+              userNum[i] == comNum[i] ? s++ : comNum[i] == userNum[j] ? b++ : 0;
+            }
+          }
+          o = o - (Math.floor(s / 3) + b);
+          const $li = document.createElement("li");
+          $li.textContent = `${Math.floor(s / 3)}s / ${b}b / ${o}o`;
+          $tries.append($li);
+        }
+      }
+      console.log(comNum);
+    </script>
+  </body>
+</html>

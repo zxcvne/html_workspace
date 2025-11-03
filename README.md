@@ -9,11 +9,13 @@ HTML, CSS, JavaScript 학습 내용을 정리한 저장소입니다.
 ## 📝 학습 내용
 
 ### HTML
+
 - 기본 구조와 태그
 - 시맨틱 HTML5 요소
 - 폼과 입력 검증
 
 ### CSS
+
 - 선택자와 우선순위
 - 박스 모델
 - Flexbox레이아웃
@@ -21,6 +23,7 @@ HTML, CSS, JavaScript 학습 내용을 정리한 저장소입니다.
 - CSS 애니메이션과 전환 효과
 
 ### JavaScript
+
 - 변수, 데이터 타입, 연산자
 - 함수와 스코프
 - 배열과 객체
@@ -33,7 +36,7 @@ HTML, CSS, JavaScript 학습 내용을 정리한 저장소입니다.
 
 1. **롯데 민속박물관** - HTML, CSS 레이아웃 종합
 2. **계산기** - JavaScript 기본 문법 활용
-3.
+3. **todolist(itemList)** - DOM 조작 및 이벤트 처리, 클로저
 
 ## 🛠️ 사용 도구
 
@@ -61,6 +64,5 @@ HTML, CSS, JavaScript 학습 내용을 정리한 저장소입니다.
 - [x] CSS 기초
 - [x] 반응형 디자인
 - [x] JavaScript 기초
-- [x] DOM 조작  
+- [x] DOM 조작
 - [ ] 프로젝트 완성
-

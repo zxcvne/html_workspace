@@ -84,6 +84,56 @@
         cursor: pointer;
       }
     </style>
+    <!-- <style>
+      body {
+        .container {
+          text-align: center;
+        }
+        form {
+          width: 600px;
+          background-color: rgb(134, 206, 182);
+          margin: 0 auto;
+          padding: 30px 40px;
+          box-sizing: border-box;
+        }
+        form > input {
+          border: none;
+          outline: none;
+          padding: 10px;
+          width: 300px;
+          border-radius: 5px;
+        }
+        form > button {
+          padding: 8px;
+          border: none;
+          background-color: white;
+          border-radius: 5px;
+          cursor: pointer;
+          font-weight: 700;
+        }
+        ul {
+          box-sizing: border-box;
+          margin: 0 auto;
+          padding: 0;
+          list-style: none;
+          width: 600px;
+        }
+        ul li {
+          padding: 12px 20px;
+          background-color: rgb(182, 238, 182);
+        }
+        ul li .close {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 12 20px;
+          cursor: pointer;
+        }
+        ul li:nth-child(odd) {
+          background-color: bisque;
+        }
+      }
+    </style> -->
   </head>
   <body>
     <div class="container">
@@ -112,7 +162,6 @@
         }
       });
 
-      //
       function addItem() {
         if ($item.value.trim()) {
           const $li = document.createElement("li");
@@ -140,5 +189,58 @@
         }
       }
     </script>
+    <!-- <script>
+      // todoList(CRUD)
+      // C : create (생성) => item 생성 => 저장공간에 저장
+      // R : read (읽기) => item 배열을 읽어서 출력
+      // U : update (수정) => X
+      // D : delete (삭제) => item 배열에서 삭제
+
+      const itemList = [];
+
+      document.getElementById("btn").addEventListener("click", () => {
+        let $item = document.getElementById("item");
+        if ($item.value == "") {
+          alert("아이템 값이 없습니다.");
+          $item.focus(); // 커서 보내기
+        } else {
+          itemList.push($item.value);
+          $item.value = "";
+          $item.focus(); // 커서 보내기
+          // 배열을 화면에 뿌리기
+          printData();
+        }
+        console.log(itemList);
+      });
+
+      document.getElementById("itemList").addEventListener("click", (e) => {
+        console.log(e.target.classList);
+        // class : 배열로 리턴 classList
+        // value == "close" // id == 'close'
+        // classList는 배열이기 때문에 contains를 이용해서 확인
+        // data-no e.target.dataset.no ==''
+        if (e.target.classList.contains("close")) {
+          console.log(e.target); // DOMTokenList
+          // 삭제 버튼 클릭시...
+          // 삭제
+          let i = e.target.id;
+          // 배열에서 해당 번지 1개 지우기
+          // splice(번지, 개수)
+          itemList.splice(i, 1);
+        }
+
+        // 삭제 후 데이터 출력
+        printData();
+      });
+
+      function printData() {
+        // itemList 출력
+        let list = "";
+        for (let i = 0; i < itemList.length; i++) {
+          list += `<li>${itemList[i]}<span class="close a b" id="${i}">❌</span></li>`;
+        }
+        document.getElementById("itemList").innerHTML = list;
+      }
+    </script> -->
   </body>
 </html>
