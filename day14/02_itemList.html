@@ -127,7 +127,7 @@
           $deleteBtn.addEventListener("click", () => {
             // $li.remove가 자신의 $li만 삭제하는 이유 :
             // 함수안에서 호출된 변수를 참조 => 클로저 발생
-            // $li는 항상 자신의 $li 값을 참조
+            // $li는 항상 자신의 $li 값을 가리킨다
             $li.remove();
           });
 
