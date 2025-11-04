@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      border-radius: 20px;
+      background-color: #333;
+      width: 400px;
+      height: 400px;
+      margin: 200px auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      border: 1px solid #d9d9d9;
+    }
+    .text-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .text-area > input {
+      padding: 20px;
+      width: 300px;
+      height: 50px;
+      border-radius: 10px;
+      box-sizing: border-box;
+      margin-top: 10px;
+      border: 1px solid #d9d9d9;
+      outline: none;
+    }
+    button {
+      border: none;
+      outline: none;
+      width: 300px;
+      height: 50px;
+      border-radius: 10px;
+      margin-top: 20px;
+      background-color: rgb(47, 255, 64);
+      color: white;
+      font-size: 16px;
+    }
+    p {
+      margin-top: 30px;
+      color: white;
+    }
+    p:hover {
+      cursor: pointer;
+      color: rgb(51, 128, 243);
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="text-area">
+        <input id="id" type="text" placeholder="아이디" />
+        <input id="pw" type="password" placeholder="비밀번호" />
+      </div>
+      <button>로그인</button>
+      <p>비밀번호를 잊어버리셨나요</p>
+    </div>
+    <script>
+      // event input
+      // id : 8자 이상
+      // pw : 영어, 숫자, 특수문자 1개씩을 포함한 8자 이상
+      // 두 조건이 맞을 때만 버튼 disable 상태 해지
+      // 객체.disabled = ture => 비활성화 상태
+      // 객체.disabled = false => 활성화 상태
+      // regExp
+      const $id = document.getElementById("id");
+      const $pw = document.getElementById("pw");
+      const $button = document.querySelector("button");
+      let validid = false;
+      let validpw = false;
+
+      function validtion(validid, validpw) {
+        if (!validid || !validpw) {
+          $button.disabled = true;
+          if ($button.disabled) {
+            $button.style.backgroundColor = "gray";
+          }
+        } else {
+          $button.disabled = false;
+          $button.style.backgroundColor = "rgb(47, 255, 64)";
+        }
+      }
+      $id.addEventListener("input", (e) => {
+        validid = /^[a-z0-9]{8,}$/i.test(e.target.value);
+        console.log(validid);
+        validtion(validid, validpw);
+      });
+
+      $pw.addEventListener("input", (e) => {
+        validpw =
+          /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=\[\]{};:'",.<>?/\\|`~])[A-Za-z\d!@#$%^&*()_\-+=\[\]{};:'",.<>?/\\|`~]{8,}$/i.test(
+            e.target.value
+          );
+        console.log(validpw);
+        validtion(validid, validpw);
+      });
+      $button.addEventListener("click", () => {
+        location.reload();
+      });
+    </script>
+  </body>
+</html>

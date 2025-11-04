@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="makeBtn">element Create</button>
+    <div id="zone"></div>
+    <h3 id="result"></h3>
+  </body>
+  <script>
+    let $makeBtn = document.getElementById("makeBtn");
+    let $zone = document.getElementById("zone");
+    $makeBtn.addEventListener(
+      "click",
+      () => {
+        let newBtn = document.createElement("button");
+        newBtn.textContent = "new Btn";
+        newBtn.id = "newBtn";
+        $zone.appendChild(newBtn);
+
+        // 동적으로 생성되는 버튼은 해당 function 밖에서는 인지가 안됨.
+        /*document.getElementById("newBtn").addEventListener("click", () => {
+          document.getElementById("result").innerText =
+            "newBtn이 클릭되었습니다.";
+        });*/
+      },
+      { once: true }
+    );
+
+    // 문서 전체에 리스너를 장착 => element target확인
+    document.addEventListener("click", (e) => {
+      console.log(e.target);
+      if (e.target.id == "newBtn") {
+        document.getElementById(
+          "result"
+        ).innerText = `newBtn이 클릭되었습니다.`;
+      }
+    });
+  </script>
+</html>

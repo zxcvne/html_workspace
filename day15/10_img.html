@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        text-align: center;
+        margin: 50px auto;
+        border: 1px solid #333;
+        width: 550px;
+        height: 600px;
+        box-sizing: border-box;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      h1 {
+        text-align: center;
+        width: 400px;
+        height: 50px;
+        border: 3px solid black;
+        margin: 10px auto 30px;
+      }
+      ul {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 30px 0;
+        list-style: none;
+      }
+      ul > li {
+        padding: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 20px;
+        background-color: rgb(185, 231, 139);
+        color: black;
+      }
+      ul > li:hover {
+        cursor: pointer;
+        background-color: #cbf594;
+        color: navy;
+        transform: scale(1.01);
+      }
+      img {
+        width: 400px;
+        height: 300px;
+        padding: 10px;
+        border: 1px solid #333;
+        box-shadow: 5px 5px 5px gray;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>travle</h1>
+      <ul>
+        <li id="travle" onclick="clickCity(this)">HOME</li>
+        <li id="seoul" onclick="clickCity(this)">Seoul</li>
+        <li id="tokyo" onclick="clickCity(this)">Tokyo</li>
+        <li id="paris" onclick="clickCity(this)">Paris</li>
+      </ul>
+      <img src="../image/travle.png" alt="" id="img" />
+    </div>
+
+    <!-- <script> 
+      const $img = document.querySelector("img");
+      const $homeBtn = document.getElementById("homeBtn");
+      const $seoulBtn = document.getElementById("seoulBtn");
+      const $tokyoBtn = document.getElementById("tokyoBtn");
+      const $pariesBtn = document.getElementById("parisBtn");
+      const imgArr = [];
+      const src = `../image/`;
+      imgArr.push("travle.png");
+      imgArr.push("seoul.png");
+      imgArr.push("tokyo.png");
+      imgArr.push("paries.png");
+
+      for (let i of imgArr) {
+        console.log(i);
+      }
+      $homeBtn.addEventListener("click", () => {
+        $img.src = src + imgArr[0];
+        console.log(src + imgArr[0]);
+      });
+      $seoulBtn.addEventListener("click", () => {
+        $img.src = src + imgArr[1];
+      });
+      $tokyoBtn.addEventListener("click", () => {
+        $img.src = src + imgArr[2];
+      });
+      $pariesBtn.addEventListener("click", () => {
+        $img.src = src + imgArr[3];
+      });
+    </script>
+-->
+    <script>
+      function clickCity(e) {
+        console.log(e.id);
+        document.getElementById("img").src = `../image/${e.id}.png`;
+      }
+    </script>
+  </body>
+</html>

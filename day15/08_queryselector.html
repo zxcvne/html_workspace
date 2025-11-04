@@ -15,6 +15,7 @@
       <li>querySelector(css의 selector) : 다양한 element 접근이 가능</li>
       <li>getElementBy** : 편리한 속성접근 / 속도가 더 빠름</li>
     </ul>
+
     <script>
       // 처음 만나는 li 하나만 리턴
       const $li = document.querySelector("li");
@@ -22,6 +23,8 @@
       const $liAll = document.querySelectorAll("li");
       console.log($liAll);
       $liAll.forEach((v) => console.log(v));
+
+
     </script>
   </body>
 </html>
